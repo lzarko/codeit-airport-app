@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="20230124-1_create_flight_table_and_sequence" author="Zharko Lazarovski">
+        <comment>
+            Use sequence for generating values for primary key column of flight.
+            Add flight table.
+        </comment>
+
+        <createSequence sequenceName="flight_seq" incrementBy="5"/>
+
+        <createTable tableName="flight">
+            <column name="id" type="bigint" defaultValueComputed="nextval('flight_seq')">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="departure_airport_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_airport_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="departure_time_in_minutes" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flight_duration_in_minutes" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="flight"
+                                 baseColumnNames="departure_airport_id"
+                                 constraintName="fk_departure_airport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="airport"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="flight"
+                                 baseColumnNames="destination_airport_id"
+                                 constraintName="fk_destination_airport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="airport"
+                                 onDelete="CASCADE"/>
+
+    </changeSet>
+</databaseChangeLog>
+

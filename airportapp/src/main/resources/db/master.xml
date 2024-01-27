@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <include file="classpath:db/2023/20230124-1_create_airport_table_and_sequence.xml" relativeToChangelogFile="false" />
+    <include file="classpath:db/2023/20230124-2_create_flight_table_and_sequence.xml" relativeToChangelogFile="false" />
+</databaseChangeLog>
