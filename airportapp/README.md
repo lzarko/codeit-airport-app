@@ -25,13 +25,14 @@ Install necessary software:
 DB_USERNAME=<DB_USERNAME>
 DB_PASSWORD=<DB_PASSWORD>
 DB_URL=<DB_URL>
-
 ```
+
 ### Airport and Flights files location
 1. Check the file location for the airport and flight csv files
 2. Open the application.yml file
 3. Change the data of the brackets to your files' locations(OR reproduce the same steps as the 
 configuration by adding environment variables with their locations)
-4. 
+
+
 ### Applications start:
 **Congratulations** now you can successfully run AirportApp locally!
